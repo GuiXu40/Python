@@ -126,7 +126,7 @@ numpy.ones(shape, dtype=None, order='C')
 np.ones((2, 3), order = 'F')
 ```
 
-#### zeros 方法创建¶
+#### zeros 方法创建
 `zeros `方法和上面的 ones 方法非常相似，不同的地方在于，这里全部填充为 0。zeros 方法和 ones 是一致的。
 ```python
 numpy.zeros(shape, dtype=None, order='C')
@@ -135,7 +135,36 @@ numpy.zeros(shape, dtype=None, order='C')
 + dtype：数据类型。
 + order：{'C'，'F'}，按行或列方式储存数组。
 
+#### eye 方法创建
+`numpy.eye` 用于创建一个二维数组，其特点是k 对角线上的值为 1，其余值全部为0。方法如下：
+```python
+numpy.eye(N, M=None, k=0, dtype=<type 'float'>)
+```
++ N：输出数组的行数。
++ M：输出数组的列数。
++ k：对角线索引：0（默认）是指主对角线，正值是指上对角线，负值是指下对角线
 
+```python
+np.eye(5, 5, 3, dtype = 'int')
+```
+#### 从已知数据创建
+我们还可以从已知数据文件、函数中创建 ndarray。NumPy 提供了下面 5 个方法：
 
++ frombuffer（buffer）：将缓冲区转换为 1 维数组。
++ fromfile（file，dtype，count，sep）：从文本或二进制文件中构建多维数组。
++ fromfunction（function，shape）：通过函数返回值来创建多维数组。
++ fromiter（iterable，dtype，count）：从可迭代对象创建 1 维数组。
++ fromstring（string，dtype，count，sep）：从字符串中创建 1 维数组
 
+### ndarray数组属性
++ ndarray.T转置数组
++ ndarray.dtype 用来输出数组包含元素的数据类型
++ ndarray.imag 用来输出数组包含元素的虚部
++ ndarray.real用来输出数组包含元素的实部
++ ndarray.size用来输出数组中的总包含元素数# ndarray.itemsize输出一个数组元素的字节数
++ ndarray.nbytes用来输出数组的元素总字节数
++ ndarray.ndim用来输出数组尺寸
++ ndarray.shape用来输出数组维数组
++ ndarray.strides用来遍历数组时，输出每个维度中步进的字节数组
 
+### 数组基本操作
