@@ -383,41 +383,41 @@ np.random.choice(10, 5)
 概率密度分布
 除了上面介绍的 6 种随机数生成方法，NumPy 还提供了大量的满足特定概率密度分布的样本生成方法。它们的使用方法和上面非常相似
 
-+numpy.random.beta(a，b，size)：从 Beta 分布中生成随机数。
-+numpy.random.binomial(n, p, size)：从二项分布中生成随机数。
-+numpy.random.chisquare(df，size)：从卡方分布中生成随机数。
-+numpy.random.dirichlet(alpha，size)：从 Dirichlet 分布中生成随机数。
-+numpy.random.exponential(scale，size)：从指数分布中生成随机数。
-+numpy.random.f(dfnum，dfden，size)：从 F 分布中生成随机数。
-+numpy.random.gamma(shape，scale，size)：从 Gamma 分布中生成随机数。
-+numpy.random.geometric(p，size)：从几何分布中生成随机数。
-+numpy.random.gumbel(loc，scale，size)：从 Gumbel 分布中生成随机数。
-+numpy.random.hypergeometric(ngood, nbad, nsample, size)：从超几何分布中生成随机数。
-+numpy.random.laplace(loc，scale，size)：从拉普拉斯双指数分布中生成随机数。
-numpy.random.logistic(loc，scale，size)：从逻辑分布中生成随机数。
-+numpy.random.lognormal(mean，sigma，size)：从对数正态分布中生成随机数。
-+numpy.random.logseries(p，size)：从对数系列分布中生成随机数。+
-+numpy.random.multinomial(n，pvals，size)：从多项分布中生成随机数。
-+numpy.random.multivariate_normal(mean, cov, size)：从多变量正态分布绘制随机样本。
-+numpy.random.negative_binomial(n, p, size)：从负二项分布中生成随机数。
-+numpy.random.noncentral_chisquare(df，nonc，size)：从非中心卡方分布中生成随机数。
-+numpy.random.noncentral_f(dfnum, dfden, nonc, size)：从非中心 F 分布中抽取样本。
-+numpy.random.normal(loc，scale，size)：从正态分布绘制随机样本。
-+numpy.random.pareto(a，size)：从具有指定形状的 Pareto II 或 Lomax 分布中生成随机数。
-+numpy.random.poisson(lam，size)：从泊松分布中生成随机数。
-+numpy.random.power(a，size)：从具有正指数 a-1 的功率分布中在 0，1 中生成随机数。
-+numpy.random.rayleigh(scale，size)：从瑞利分布中生成随机数。
-+numpy.random.standard_cauchy(size)：从标准 Cauchy 分布中生成随机数。
-+numpy.random.standard_exponential(size)：从标准指数分布中生成随机数。
-+numpy.random.standard_gamma(shape，size)：从标准 Gamma 分布中生成随机数。
-+numpy.random.standard_normal(size)：从标准正态分布中生成随机数。
-+numpy.random.standard_t(df，size)：从具有 df 自由度的标准学生 t 分布中生成随机数。
-+numpy.random.triangular(left，mode，right，size)：从三角分布中生成随机数。
-+numpy.random.uniform(low，high，size)：从均匀分布中生成随机数。
-+numpy.random.vonmises(mu，kappa，size)：从 von Mises 分布中生成随机数。
-+numpy.random.wald(mean，scale，size)：从 Wald 或反高斯分布中生成随机数。
-+numpy.random.weibull(a，size)：从威布尔分布中生成随机数。
-+numpy.random.zipf(a，size)：从 Zipf 分布中生成随机数
++ numpy.random.beta(a，b，size)：从 Beta 分布中生成随机数。
++ numpy.random.binomial(n, p, size)：从二项分布中生成随机数。
++ numpy.random.chisquare(df，size)：从卡方分布中生成随机数。
++ numpy.random.dirichlet(alpha，size)：从 Dirichlet 分布中生成随机数。
++ numpy.random.exponential(scale，size)：从指数分布中生成随机数。
++ numpy.random.f(dfnum，dfden，size)：从 F 分布中生成随机数。
++ numpy.random.gamma(shape，scale，size)：从 Gamma 分布中生成随机数。
++ numpy.random.geometric(p，size)：从几何分布中生成随机数。
++ numpy.random.gumbel(loc，scale，size)：从 Gumbel 分布中生成随机数。
++ numpy.random.hypergeometric(ngood, nbad, nsample, size)：从超几何分布中生成随机数。
++ numpy.random.laplace(loc，scale，size)：从拉普拉斯双指数分布中生成随机数。
++ numpy.random.logistic(loc，scale，size)：从逻辑分布中生成随机数。
++ numpy.random.lognormal(mean，sigma，size)：从对数正态分布中生成随机数。
++ numpy.random.logseries(p，size)：从对数系列分布中生成随机数。+
++ numpy.random.multinomial(n，pvals，size)：从多项分布中生成随机数。
++ numpy.random.multivariate_normal(mean, cov, size)：从多变量正态分布绘制随机样本。
++ numpy.random.negative_binomial(n, p, size)：从负二项分布中生成随机数。
++ numpy.random.noncentral_chisquare(df，nonc，size)：从非中心卡方分布中生成随机数。
++ numpy.random.noncentral_f(dfnum, dfden, nonc, size)：从非中心 F 分布中抽取样本。
++ numpy.random.normal(loc，scale，size)：从正态分布绘制随机样本。
++ numpy.random.pareto(a，size)：从具有指定形状的 Pareto II 或 Lomax 分布中生成随机数。
++ numpy.random.poisson(lam，size)：从泊松分布中生成随机数。
++ numpy.random.power(a，size)：从具有正指数 a-1 的功率分布中在 0，1 中生成随机数。
++ numpy.random.rayleigh(scale，size)：从瑞利分布中生成随机数。
++ numpy.random.standard_cauchy(size)：从标准 Cauchy 分布中生成随机数。
++ numpy.random.standard_exponential(size)：从标准指数分布中生成随机数。
++ numpy.random.standard_gamma(shape，size)：从标准 Gamma 分布中生成随机数。
++ numpy.random.standard_normal(size)：从标准正态分布中生成随机数。
++ numpy.random.standard_t(df，size)：从具有 df 自由度的标准学生 t 分布中生成随机数。
++ numpy.random.triangular(left，mode，right，size)：从三角分布中生成随机数。
++ numpy.random.uniform(low，high，size)：从均匀分布中生成随机数。
++ numpy.random.vonmises(mu，kappa，size)：从 von Mises 分布中生成随机数。
++ numpy.random.wald(mean，scale，size)：从 Wald 或反高斯分布中生成随机数。
++ numpy.random.weibull(a，size)：从威布尔分布中生成随机数。
++ numpy.random.zipf(a，size)：从 Zipf 分布中生成随机数
 
 ### 数学函数
 #### 三角函数
