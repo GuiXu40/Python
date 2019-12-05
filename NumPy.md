@@ -107,3 +107,35 @@ numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)
 + endpoint：布尔值，如果为真，则最后一个样本包含在序列内。
 + retstep：布尔值，如果为真，返回间距。
 + dtype：数组的类型。
+
+例：
+```python
+np.linspace(0, 10, 10, endpoint=True)
+
+np.linspace(0, 10, 10, endpoint=False)
+```
+#### ones 方法创建
+`numpy.ones` 用于快速创建数值全部为 1 的多维数组。其方法如下
+```python
+numpy.ones(shape, dtype=None, order='C')
+```
++ shape：用于指定数组形状，例如（1， 2）或 3。
++ dtype：数据类型。
++ order：{'C'，'F'}，按行或列方式储存数组。
+```python
+np.ones((2, 3), order = 'F')
+```
+
+#### zeros 方法创建¶
+`zeros `方法和上面的 ones 方法非常相似，不同的地方在于，这里全部填充为 0。zeros 方法和 ones 是一致的。
+```python
+numpy.zeros(shape, dtype=None, order='C')
+```
++ shape：用于指定数组形状，例如（1， 2）或3。
++ dtype：数据类型。
++ order：{'C'，'F'}，按行或列方式储存数组。
+
+
+
+
+
