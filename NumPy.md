@@ -358,7 +358,128 @@ np.random.rand(2, 5)
 ```python
 np.random.randn(1, 10)  // 返回标准正态分布
 ```
++ randint(low, high, size, dtype) 方法将会生成 [low, high) 的随机整数。注意这是一个半开半闭区间
 
+```python
+np.random.randint(2, 5, (2, 5))
+```
++ random_sample(size) 方法将会在 [0, 1) 区间内生成指定 size 的随机浮点数
+
+```python
+np.random.random_sample([2, 5])
+```
+与 numpy.random.random_sample 类似的方法还有：
+
++ numpy.random.random([size])
++ numpy.random.ranf([size])
++ numpy.random.sample([size])
+
++ choice(a, size, replace, p) 方法将会给定的数组里随机抽取几个值，该方法类似于随机抽样
+
+```python
+np.random.choice(10, 5)
+```
+#### 概率分布
+概率密度分布
+除了上面介绍的 6 种随机数生成方法，NumPy 还提供了大量的满足特定概率密度分布的样本生成方法。它们的使用方法和上面非常相似
+
++numpy.random.beta(a，b，size)：从 Beta 分布中生成随机数。
++numpy.random.binomial(n, p, size)：从二项分布中生成随机数。
++numpy.random.chisquare(df，size)：从卡方分布中生成随机数。
++numpy.random.dirichlet(alpha，size)：从 Dirichlet 分布中生成随机数。
++numpy.random.exponential(scale，size)：从指数分布中生成随机数。
++numpy.random.f(dfnum，dfden，size)：从 F 分布中生成随机数。
++numpy.random.gamma(shape，scale，size)：从 Gamma 分布中生成随机数。
++numpy.random.geometric(p，size)：从几何分布中生成随机数。
++numpy.random.gumbel(loc，scale，size)：从 Gumbel 分布中生成随机数。
++numpy.random.hypergeometric(ngood, nbad, nsample, size)：从超几何分布中生成随机数。
++numpy.random.laplace(loc，scale，size)：从拉普拉斯双指数分布中生成随机数。
+numpy.random.logistic(loc，scale，size)：从逻辑分布中生成随机数。
++numpy.random.lognormal(mean，sigma，size)：从对数正态分布中生成随机数。
++numpy.random.logseries(p，size)：从对数系列分布中生成随机数。+
++numpy.random.multinomial(n，pvals，size)：从多项分布中生成随机数。
++numpy.random.multivariate_normal(mean, cov, size)：从多变量正态分布绘制随机样本。
++numpy.random.negative_binomial(n, p, size)：从负二项分布中生成随机数。
++numpy.random.noncentral_chisquare(df，nonc，size)：从非中心卡方分布中生成随机数。
++numpy.random.noncentral_f(dfnum, dfden, nonc, size)：从非中心 F 分布中抽取样本。
++numpy.random.normal(loc，scale，size)：从正态分布绘制随机样本。
++numpy.random.pareto(a，size)：从具有指定形状的 Pareto II 或 Lomax 分布中生成随机数。
++numpy.random.poisson(lam，size)：从泊松分布中生成随机数。
++numpy.random.power(a，size)：从具有正指数 a-1 的功率分布中在 0，1 中生成随机数。
++numpy.random.rayleigh(scale，size)：从瑞利分布中生成随机数。
++numpy.random.standard_cauchy(size)：从标准 Cauchy 分布中生成随机数。
++numpy.random.standard_exponential(size)：从标准指数分布中生成随机数。
++numpy.random.standard_gamma(shape，size)：从标准 Gamma 分布中生成随机数。
++numpy.random.standard_normal(size)：从标准正态分布中生成随机数。
++numpy.random.standard_t(df，size)：从具有 df 自由度的标准学生 t 分布中生成随机数。
++numpy.random.triangular(left，mode，right，size)：从三角分布中生成随机数。
++numpy.random.uniform(low，high，size)：从均匀分布中生成随机数。
++numpy.random.vonmises(mu，kappa，size)：从 von Mises 分布中生成随机数。
++numpy.random.wald(mean，scale，size)：从 Wald 或反高斯分布中生成随机数。
++numpy.random.weibull(a，size)：从威布尔分布中生成随机数。
++numpy.random.zipf(a，size)：从 Zipf 分布中生成随机数
+
+### 数学函数
+#### 三角函数
+首先, 看一看 NumPy 提供的三角函数功能。这些方法有：
+
++ numpy.sin(x)：三角正弦。
++ numpy.cos(x)：三角余弦。
++ numpy.tan(x)：三角正切。
++ numpy.arcsin(x)：三角反正弦。
++ numpy.arccos(x)：三角反余弦。
++ numpy.arctan(x)：三角反正切。
++ numpy.hypot(x1,x2)：直角三角形求斜边。
++ numpy.degrees(x)：弧度转换为度。
++ numpy.radians(x)：度转换为弧度。
++ numpy.deg2rad(x)：度转换为弧度。
++ numpy.rad2deg(x)：弧度转换为度
+
+#### 双曲函数
+在数学中，双曲函数是一类与常见的三角函数类似的函数。双曲函数经常出现于某些重要的线性微分方程的解中，使用 NumPy 计算它们的方法为：
+
++ numpy.sinh(x)：双曲正弦。
++ numpy.cosh(x)：双曲余弦。
++ numpy.tanh(x)：双曲正切。
++ numpy.arcsinh(x)：反双曲正弦。
++ numpy.arccosh(x)：反双曲余弦。
++ numpy.arctanh(x)：反双曲正切
+
+#### 数值修约
+数值修约, 又称数字修约, 是指在进行具体的数字运算前, 按照一定的规则确定一致的位数, 然后舍去某些数字后面多余的尾数的过程。比如, 我们常听到的「4 舍 5 入」就属于数值修约中的一种。
+
++ numpy.around(a)：平均到给定的小数位数。
++ numpy.round_(a)：将数组舍入到给定的小数位数。
++ numpy.rint(x)：修约到最接近的整数。
++ numpy.fix(x, y)：向 0 舍入到最接近的整数。
++ numpy.floor(x)：返回输入的底部(标量 x 的底部是最大的整数 i)。
++ numpy.ceil(x)：返回输入的上限(标量 x 的底部是最小的整数 i).
++ numpy.trunc(x)：返回输入的截断值
+
+#### 求和、求积、差分
+下面这些方法用于数组内元素或数组间进行求和、求积以及进行差分。
+
++ numpy.prod(a, axis, dtype, keepdims)：返回指定轴上的数组元素的乘积。
++ numpy.sum(a, axis, dtype, keepdims)：返回指定轴上的数组元素的总和。
++ numpy.nanprod(a, axis, dtype, keepdims)：返回指定轴上的数组元素的乘积, 将 NaN 视作 1。
++ numpy.nansum(a, axis, dtype, keepdims)：返回指定轴上的数组元素的总和, 将 NaN 视作 0。
++ numpy.cumprod(a, axis, dtype)：返回沿给定轴的元素的累积乘积。
++ numpy.cumsum(a, axis, dtype)：返回沿给定轴的元素的累积总和。
++ numpy.nancumprod(a, axis, dtype)：返回沿给定轴的元素的累积乘积, 将 NaN 视作 1。
++ numpy.nancumsum(a, axis, dtype)：返回沿给定轴的元素的累积总和, 将 NaN 视作 0。
++ numpy.diff(a, n, axis)：计算沿指定轴的第 n 个离散差分。
++ numpy.ediff1d(ary, to_end, to_begin)：数组的连续元素之间的差异。
++ numpy.gradient(f)：返回 N 维数组的梯度。
++ numpy.cross(a, b, axisa, axisb, axisc, axis)：返回两个(数组）向量的叉积。
++ numpy.trapz(y, x, dx, axis)：使用复合梯形规则沿给定轴积分
+
+#### 指数和对数
+如果你需要进行指数或者对数求解，可以用到以下这些方法。
+
++ numpy.exp(x)：计算输入数组中所有元素的指数。
++ numpy.log(x)：计算自然对数。
++ numpy.log10(x)：计算常用对数。
++ numpy.log2(x)：计算二进制对数
 
 
 
