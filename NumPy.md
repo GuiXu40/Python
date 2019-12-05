@@ -168,3 +168,201 @@ np.eye(5, 5, 3, dtype = 'int')
 + ndarray.strides用来遍历数组时，输出每个维度中步进的字节数组
 
 ### 数组基本操作
+#### 重设形状
+reshape 可以在不改变数组数据的同时，改变数组的形状。其中，numpy.reshape() 等效于  ndarray.reshape()。reshape 方法非常简单：
+```python
+numpy.reshape(a, newshape)
+```
+```
+np.arange(10).reshape((5, 2))
+
+a = np.arange(10)
+np.reshape(a, (2, 5))
+```
+#### 数组展开
+ravel 的目的是将任意形状的数组扁平化，变为 1 维数组。ravel 方法如下：
+```python
+numpy.ravel(a, order='C')
+```
+其中，a 表示需要处理的数组。order 表示变换时的读取顺序，默认是按照行依次读取，当 order='F' 时，可以按列依次读取排序
+
+```python
+np.ravel(a, order = 'F')
+np.ravel(a, order = 'C')
+```
+#### 轴移动
+moveaxis 可以将数组的轴移动到新的位置。其方法如下：
+```python
+numpy.moveaxis(a, source, destination)
+```
++ a：数组。
++ source：要移动的轴的原始位置。
++ destination：要移动的轴的目标位置。
+
+`swapaxes` 可以用来交换数组的轴。其方法如下：
+```python
+numpy.swapaxes(a, axis1, axis2)
+```
++ a：数组。
++ axis1：需要交换的轴 1 位置。
++ axis2：需要与轴 1 交换位置的轴 1 位置
+
+#### 数组转置
+transpose 类似于矩阵的转置，它可以将 2 维数组的横轴和纵轴交换。其方法如下：
+```python
+numpy.transpose(a, axes=None)
+```
+其中：
+
++ a：数组。
++ axis：该值默认为 none，表示转置。如果有值，那么则按照值替换轴
+```python
+a = np.arange(4).reshape(2, 2)
+np.transpose(a)
+```
+#### 维度改变
+atleast_xd 支持将输入数据直接视为 x维。这里的 x 可以表示：1，2，3。方法分别为：
+```python
+numpy.atleast_1d()
+numpy.atleast_2d()
+numpy.atleast_3d()
+```
+例
+```python
+print(np.atleast_1d([1, 2, 3]))
+print(np.atleast_2d([4, 5, 6]))
+print(np.atleast_3d([7, 8, 9]))
+```
+#### 类型转换
+在 NumPy 中，还有一系列以 as 开头的方法，它们可以将特定输入转换为数组，亦可将数组转换为矩阵、标量，ndarray 等。如下：
+     
++ asarray(a，dtype，order)：将特定输入转换为数组。
++ asanyarray(a，dtype，order)：将特定输入转换为 ndarray。
++ asmatrix(data，dtype)：将特定输入转换为矩阵。
++ asfarray(a，dtype)：将特定输入转换为 float 类型的数组。
++ asarray_chkfinite(a，dtype，order)：将特定输入转换为数组，检查 NaN 或 infs。
++ asscalar(a)：将大小为 1 的数组转换为标量
+
+#### 数组连接
+`concatenate` 可以将多个数组沿指定轴连接在一起。其方法为：
+```python
+numpy.concatenate((a1, a2, ...), axis=0)
+```
+其中：
+
++ (a1, a2, ...)：需要连接的数组。
++ axis：指定连接轴(不理解这里的轴是什么意思-->相当于维度)
+
+例
+```python
+a = np.array([[1, 2], [3, 4], [5, 6]])
+b = np.array([[7, 8], [9, 10]])
+c = np.array([[11, 12]])
+
+np.concatenate((a, b, c), axis=0)
+```
+这里，我们可以尝试沿着横轴连接。但要保证连接处的维数一致，所以这里用到了 .T 转置
+```python
+a = np.array([[1, 2], [3, 4], [5, 6]])
+b = np.array([[7, 8, 9]])
+
+np.concatenate((a, b.T), axis=1)
+```
+
+#### 数组堆叠
+在 NumPy 中，以下方法可用于数组的堆叠：
+
++ stack(arrays，axis)：沿着新轴连接数组的序列。
++ column_stack()：将 1 维数组作为列堆叠到 2 维数组中。
++ hstack()：按水平方向堆叠数组。
++ vstack()：按垂直方向堆叠数组。
++ dstack()：按深度方向堆叠数组
+
+#### 拆分
+split 及与之相似的一系列方法主要是用于数组的拆分，列举如下：
+
++ split(ary，indices_or_sections，axis)：将数组拆分为多个子数组。
++ dsplit(ary，indices_or_sections)：按深度方向将数组拆分成多个子数组。
++ hsplit(ary，indices_or_sections)：按水平方向将数组拆分成多个子数组。
++ vsplit(ary，indices_or_sections)：按垂直方向将数组拆分成多个子数组
+
+```python
+a = np.arange(10)
+np.split(a, 5)
+```
+高维度也是可以拆分的
+```python
+a = np.arange(10).reshape(2, 5)
+np.split(a, 2)
+```
+#### 删除
+首先是 delete 删除：
+
++ `delete(arr，obj，axis)`：沿特定轴删除数组中的子数组
+```python
+a = np.arange(12).reshape(3, 4)
+np.delete(a, 2, 1)
+```
+#### 数组插入
+再看一看 insert插入，用法和 delete 很相似，只是需要在第三个参数位置设置需要插入的数组对象：
+
++ insert(arr，obj，values，axis)：依据索引在特定轴之前插入值
+```python
+a = np.arange(12).reshape(3, 4)
+b = np.arange(4)
+
+np.insert(a, 2, b, 0)
+```
+#### 附加
+`append `的用法也非常简单。只需要设置好需要附加的值和轴位置就好了。它其实相当于只能在末尾插入的 insert，所以少了一个指定索引的参数。
+
++ append(arr，values，axis)：将值附加到数组的末尾，**并返回 1 维数组**
+```python
+a = np.arange(6).reshape(2, 3)
+b = np.arange(3)
+
+np.append(a, b)
+```
+#### 重设尺寸
++ resize(a，new_shape)：对数组尺寸进行重新设定
+```python
+a = np.arange(10)
+a.resize(2, 5)
+a
+```
+------------
+reshape 在改变形状时，不会影响原数组，相当于对原数组做了一份拷贝。而 resize 则是对原数组执行操作
+
+-------------
+
+#### 翻转数组
+在 NumPy 中，我们还可以对数组进行翻转操作：
+
++ fliplr(m)：左右翻转数组。
++ flipud(m)：上下翻转数组
+
+```python
+a = np.arange(16).reshape(4, 4)
+print(a)
+print(np.fliplr(a))
+print(np.flipud(a))
+```
+### NumPy 随机数
+NumPy 的随机数功能非常强大，主要由 numpy.random 模块完成
+
+`numpy.random.rand(d0, d1, ..., dn)` 方法的作用为：指定一个数组，并使用 [0, 1) 区间随机数据填充，这些数据均匀分布
+
+```python
+np.random.rand(2, 5)
+```
+```python
+np.random.randn(1, 10)  // 返回标准正态分布
+```
+
+
+
+
+
+
+
+
