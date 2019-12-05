@@ -481,6 +481,54 @@ numpy.random.logistic(loc，scale，size)：从逻辑分布中生成随机数。
 + numpy.log10(x)：计算常用对数。
 + numpy.log2(x)：计算二进制对数
 
+#### 算术运算
+当然，NumPy 也提供了一些用于算术运算的方法，使用起来会比 Python 提供的运算符灵活一些，主要是可以直接针对数组。
+
++ numpy.add(x1, x2)：对应元素相加。
++ numpy.reciprocal(x)：求倒数 1/x。
++ numpy.negative(x)：求对应负数。
++ numpy.multiply(x1, x2)：求解乘法。
++ numpy.divide(x1, x2)：相除 x1/x2。
++ numpy.power(x1, x2)：类似于 x1^x2。
++ numpy.subtract(x1, x2)：减法。
++ numpy.fmod(x1, x2)：返回除法的元素余项。
++ numpy.mod(x1, x2)：返回余项。
++ numpy.modf(x1)：返回数组的小数和整数部分。
++ numpy.remainder(x1, x2)：返回除法余数
+
+#### 矩阵和向量积
+求解向量、矩阵、张量的点积等同样是 NumPy 非常强大的地方。
+
++ numpy.dot(a, b)：求解两个数组的点积。
++ numpy.vdot(a, b)：求解两个向量的点积。
++ numpy.inner(a, b)：求解两个数组的内积。
++ numpy.outer(a, b)：求解两个向量的外积。
++ numpy.matmul(a, b)：求解两个数组的矩阵乘积。
++ numpy.tensordot(a, b)：求解张量点积。
++ numpy.kron(a, b)：计算 Kronecker 乘积
+
+### 数组索引和切片
+#### 数组切片
+NumPy 里面针对Ndarray的数组切片和 Python 里的list 切片操作是一样的。其语法为：
+
++ Ndarray[start:stop:step]
++ [start:stop:step] 分布代表 [起始索引:截至索引:步长]。
+
+对于多维数组，我们只需要用逗号 , 分割不同维度即可
+
+#### 排序、搜索、计数
+最后，再介绍几个 NumPy 针对数组元素的使用方法，分别是排序、搜索和计数。
+
+我们可以使用 numpy.sort方法对多维数组元素进行排序。其方法为：
+```python
+numpy.sort(a, axis=-1, kind='quicksort', order=None)
+```
+其中：
+
++ a：数组。
++ axis：要排序的轴。如果为None，则在排序之前将数组铺平。默认值为 -1，沿最后一个轴排序。
++ kind：{'quicksort'，'mergesort'，'heapsort'}，排序算法。默认值为 quicksort
+
 
 
 
