@@ -6,3 +6,4 @@
 #### <a href="Pandas.md">Pandas</a>
 #### <a href="Matplotlib.md">Matplotlib</a> 
 #### <a href="Seaborn.md">Seaborn</a>
+#### <a href="Scipy.md">Scipy</a>
