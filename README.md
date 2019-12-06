@@ -7,3 +7,4 @@
 #### <a href="Matplotlib.md">Matplotlib</a> 
 #### <a href="Seaborn.md">Seaborn</a>
 #### <a href="Scipy.md">Scipy</a>
+#### <a href="PyTorch.md">PyTorch</a>
